@@ -1,0 +1,32 @@
+; Include the MUI package
+!include "MUI2.nsh"
+
+; The name of the installer
+Outfile "Installer.exe"
+
+; The default installation directory
+InstallDir $PROGRAMFILES\MyApp
+
+; The sections of the installer
+Section "Program 1"
+    ; Set the output path for the following files
+    SetOutPath $INSTDIR\Program1
+
+    ; Include the program files
+    File /r "$USERPROFILE\Direction\Program1"
+SectionEnd
+
+Section "Program 2"
+    SetOutPath $INSTDIR\Program2
+    File /r  "$USERPROFILE\Direction\Program2"
+SectionEnd
+
+; The functions to run on installation and uninstallation
+Function .onInit
+FunctionEnd
+
+Function un.onUninstSuccess
+FunctionEnd
+
+; Include the MUI interface settings
+!insertmacro MUI_LANGUAGE "English"
